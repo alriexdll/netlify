@@ -132,4 +132,43 @@
 .modal-body {
     padding: 15px 25px;
         }
- 
+ #demo {
+    background-color: #002447;
+    border: 1px solid #002447;
+    font-family: BreuerFont;
+}
+
+#demo h1 {
+    text-align: center;
+    color: white;
+}
+
+#demo p{
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    text-align-last: left;
+}
+
+ summary::-webkit-details-marker {
+ color: #00ACF3;
+ font-size: 40px;
+ margin-right: 2px;
+}
+summary:focus {
+	outline-style: none;
+}
+article > details > summary {
+	font-size: 28px;
+	margin-top: 16px;
+}
+details > p {
+	margin-left: 24px;
+}
+details details {
+	margin-left: 36px;
+}
+details details summary {
+	font-size: 16px;
+}
