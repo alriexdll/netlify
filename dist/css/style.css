@@ -1,10 +1,12 @@
 
-* {
 /*
+* {
+
     margin: 0;
     padding: 0;
-*/
+
 }
+*/
 
 /*
 .background-image {
@@ -12,5 +14,40 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+
+}
 */
+
+.rainbow{
+    background-image: linear-gradient(90deg, #2e52a1 50%, #64acdf 100%);
+    border-radius: 9px;  
+    border: 3px solid green;
+    outline: 3px solid yellow;
+    color: #fff;
+    cursor: pointer;
+    padding: 0px 46px 0px 46px;
+    position: absolute;
+    top: 430px;
+    left: 38.4em;
+    font-family: BreuerText-BoldItalic;
+}
+
+
+
+.rainbow span {
+    color: white;
+    font-size: 25px
+    
+}
+
+
+.rainbow-1:hover{
+    background-image: linear-gradient(90deg, #2e52a1 50%, #64acdf 100%);
+    animation:slidebg 3s linear infinite;
+}
+
+@keyframes slidebg {
+  to {
+    background-position:20vw;
+  }
 }
