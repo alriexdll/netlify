@@ -47,6 +47,78 @@
                 src: url(css/font/BreuerText-Regular.otf);
             }        
     
+        
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #004a98;
+  border-radius: 10px 10px 0px 0px;
+  width: 40%;
+  font-size: 12px;
+  font-family: BreuerFont;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  float: inherit
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 15px 20px;
+  background-color: #004a98
+;
+  color: white;
+}
+
+.modal-body {
+    padding: 15px 25px;
+        }
+     
     </style>
 </head>
 <body class="background-image whitespace-normal" style="background-color: #002246;">
@@ -139,11 +211,66 @@
                 <div class="underline">About Coral Sports Betting</div>
                 <div>&nbsp;|&nbsp;</div>
                 <div class="underline">
-                    <a href="#">Terms and Conditions</a>
+                    <a href="#" id="myBtn">Terms and Conditions</a>
                 </div>
             </div>
         </div>
-        
 
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Modal Header</h2>
+    </div>
+    <div class="modal-body">
+      1. The £30 free bet offer is available for new coral.co.uk customers who deposit and bet a total of £30 on any sports event(s).<br>
+                2. The free bet will be triggered by the first deposit amount and will not be applicable for subsequent deposit values.<br>
+                3. Customers depositing and staking less than £30 will receive the equivalent free bet value. For example: a customer that deposits an initial amount of £5 will be credited with a £5 free bet once they have bet a total of £5 on any sports event(s).<br>
+                4. Advertised offers relating to the opening of a Coral.co.uk account are limited to one per customer.<br>
+                5. In the case of a customer opening more than one Coral.co.uk account, we reserve the right to suspend and close duplicate accounts, and make void any bets placed.<br>
+                6. Please note that the free bet will only appear in your account once the amount of your own deposit has been bet with on any sporting event(s) (this doesn't have to be bet as one go but can be bet in increments). The free bet must then be staked before any withdrawal is permitted. Void bets do not count toward this offer.<br>
+                7. The free bet can be used on "sports" events and are not valid for Games, Casino, Virtual Sports, Poker, Lotto, Bingo, Live Casino.<br>
+                8. The free bet can be redeemed on win or each-way bets and can used on the following listed bet types: single, double, treble, 4-fold and upwards accumulator, forecast, combination forecast, tricast and combination tricast.<br>
+                9. The original free bet stake is not returned with any winnings.<br>
+                10. The free bet is not valid on tote, other combination and multiple bets (i.e Lucky 15s)<br>
+                11. The free bet is valid for 30 days.<br>
+                12. We reserve the right to amend or withdraw any promotion at any point for whatever reason.<br>
+                13. Coral.co.uk rules apply.<br>
+                14. Offer only available to UK Residents aged 18 or over.
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 </body>
 </html>
