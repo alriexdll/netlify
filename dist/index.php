@@ -55,14 +55,58 @@
     
 </head>
 <body class="background-image whitespace-normal" style="background-color: #002246;">
+
+<?php
+    // define variables and set to empty values
+    $nameErr = $emailErr = $genderErr = $websiteErr = "";
+    $name = $email = $gender = $comment = $website = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      if (empty($_POST["email"])) {
+        $emailErr = "Email is required";
+      } else {
+        $email = test_input($_POST["email"]);
+        // check if e-mail address is well-formed
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+          $emailSucc = "Valid email format";
+
+        }
+      }
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      if (empty($_POST["email"])) {
+        $emailErr = "Email is required";
+      } else {
+        $email = test_input($_POST["email"]);
+        // check if e-mail address is well-formed
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+          $emailErr = "Invalid email format";
+
+        }
+      }
+    }
+
+    function test_input($data) {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      return $data;
+    }
+?>
+    
     
     <div class="lg:pl-80 lg:pr-96 lg:items-center lg:flex lg:justify-between
                 md:flex md:justify-center md:items-center sm:items-center sm:justify-center whitespace-normal">
         <!-- LOGO -->
-        <div class="flex justify-center items-center sm:h-auto sm:w-6/12"><img src="css/img/corallogo.png"></div>
+        <div class="flex justify-center items-center sm:h-auto sm:w-6/12">
+            <a href="http://www.coral.co.uk">
+                <img src="css/img/corallogo.png">
+            </a>
+        </div>
         <!-- LOGIN -->
         <div class="flex justify-center items-center">
-            <div class="text-white underline pl-4" style="border: 1px solid white; border-radius: 5px">I'm Already a Customer <button class="p-1 ml-2" style="background-color: #fdeb01; padding: 0px 6px 0px 6px; border-radius: 5px; font-family: BreuerHeadline; font-size: 20px; color: #9d7300;" >LOGIN</button></div>
+            <div class="text-white underline pl-4" style="border: 1px solid white; border-radius: 5px"><a href="http://www.coral.co.uk">I'm Already a Customer</a> <button class="p-1 ml-2" style="background-color: #fdeb01; padding: 0px 6px 0px 6px; border-radius: 5px; font-family: BreuerHeadline; font-size: 20px; color: #9d7300;" onClick="location.href='https://coral.co.uk/'" >LOGIN</button></div>
 <!--            <div class="border-solid p-1 ml-2" style="background-color: #fdeb01; padding: 0px 6px 0px 6px; border-radius: 5px; font-family: BreuerHeadline; font-size: 20px; color: #9d7300;"><button>LOGIN</button></div>-->
         </div>
     </div>
@@ -94,13 +138,17 @@
         
         <div class="absolute top-80 w-48 max-w-xs">
             <div>   
-            <form method="POST" action="#">
-                <input class="shadow appearance-none w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" name="email" placeholder="Email">&nbsp;<span id="show"></span>
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <input class="shadow appearance-none w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" name="email" placeholder="Email">
+                    <span class="error flex items-center justify-center"><?php echo $emailErr;?></span>
+                    <span class="success flex items-center justify-center"><?php echo $emailSucc;?> </span>
+                <div class="flex items-center justify-center" style="margin-top: 12px;">
+<!--                    <a class="rainbow rainbow-1"><span>BET NOW >></span></a>-->
+                    <input class="rainbow rainbow-1" type="submit" name="submit" required value="BET NOW >>"> 
+                </div>
             </form>    
             </div>
-            <div class="flex items-center justify-center" style="margin-top: -10px;">
-              <a class="rainbow rainbow-1"><span>BET NOW >></span></a>
-            </div>
+            
         </div>
   
      
