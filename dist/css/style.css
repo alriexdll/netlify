@@ -45,3 +45,10 @@
     background-position:20vw;
   }
 }
+
+.fontf {
+    color: white;
+    font-family: BreuerText;
+    font-weight: 600;
+    font-size: 15px;
+}
